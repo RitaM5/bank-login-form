@@ -29,10 +29,10 @@ function withdrawMoney(){
         balanceTotal.innerText = parseFloat(balanceTotal.innerText) - parseFloat(withdrawValue.value);
         withdrawValue.value = '';
         }
-    else if(withdrawValue.value > balanceTotal.innerText){
+    else if(withdrawValue.value > 0 && withdrawValue.value > balanceTotal.innerText){
         alert('you dont have sufficient balance');
     }
-    else if(withdrawValue.value < 0){
+    else {
         alert('enter positive number');
     }
     
