@@ -8,36 +8,35 @@ function depositMoney(value){
         depositOutput.innerText = parseFloat(depositOutput.innerText) + parseFloat(depositValue.value);
         //for balance
         balanceTotal.innerText = parseFloat(balanceTotal.innerText) + parseFloat(depositValue.value);
-        depositValue.value = '';
-    }
-    
+    } 
     else{
         alert('enter positive number');
     }
-    
-    }
+    depositValue.value = '';
+}
    
 //for withdraw
 function withdrawMoney(){
-    let withdrawValue = document.getElementById('withdraw-input');
-    let withdrawOutput = document.getElementById('withdraw-output');
-    let balanceTotal = document.getElementById('balance-total');
+    let newWithdrawValue = document.getElementById('withdraw-input');
+    let withdrawOutputValue = document.getElementById('withdraw-output');
+    let balanceTotalValue = document.getElementById('balance-total');
+    //string convert to parsefloat
+     withdrawValue = parseFloat(newWithdrawValue.value);
+     withdrawOutput = parseFloat(withdrawOutputValue.innerText);
+     balanceTotal = parseFloat(balanceTotalValue.innerText);
 
-    if(withdrawValue.value > 0 && withdrawValue.value < balanceTotal.innerText) {
-        withdrawOutput.innerText = Number(withdrawValue.value) + Number(withdrawOutput.innerText);
+    if(withdrawValue > 0 && withdrawValue < balanceTotal) {
+        withdrawOutputValue.innerText = (withdrawValue) + (withdrawOutput);
         //for balance
-        balanceTotal.innerText = parseFloat(balanceTotal.innerText) - parseFloat(withdrawValue.value);
-        withdrawValue.value = '';
+        balanceTotalValue.innerText = (balanceTotal) - (withdrawValue);
         }
-    else if(withdrawValue.value > 0 && withdrawValue.value > balanceTotal.innerText){
+    else if(withdrawValue > 0 && withdrawValue > balanceTotal){
         alert('you dont have sufficient balance');
     }
     else {
         alert('enter positive number');
     }
-    
- 
-  
+    newWithdrawValue.value = '';
  
 }
 
